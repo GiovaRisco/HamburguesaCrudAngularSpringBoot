@@ -1,0 +1,38 @@
+<div class="container">
+
+    <div class="container text-center" style="margin: 30px" >
+        <h3>Sistema de Hamburguesas</h3>
+    </div>
+    <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Existencias</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let hamburguesa of hamburguesas">
+                <th scope="row">{{hamburguesa.idHamburguesa}}</th>
+                <td>{{hamburguesa.descripcion}}</td>
+                <td>{{hamburguesa.precio}}</td>
+                <td>{{hamburguesa.stock}}</td>
+                <td class="text-center">
+                    <div>
+                        <button (click)="editarHamburguesa(hamburguesa.idHamburguesa)"
+                        class="btn btn-warning btn-sm me-3">
+                            Editar
+                        </button>
+
+                        <button (click)="eliminarHamburguesa(hamburguesa.idHamburguesa)"
+                        class="btn btn-danger btn-sm me-3">
+                            Eliminar
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

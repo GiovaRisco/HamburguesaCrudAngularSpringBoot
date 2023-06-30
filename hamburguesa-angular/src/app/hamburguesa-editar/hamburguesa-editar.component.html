@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="container text-center" style="margin: 30px;">
+        <h3>Editar Hamburguesa</h3>
+    </div>
+    <form [formGroup]="formularioHamburguesa" (ngSubmit)="envio()">
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" id="descripcion" 
+            name="descripcion" required formControlName="descripcion"
+            [(ngModel)]="hamburguesa.descripcion"/>
+            <span *ngIf="this.formularioHamburguesa.get('descripcion')?.errors?.['required']">
+                (La descripcion no puede quedar vacía)
+              </span>
+        </div>
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio:</label>
+            <input type="number" step="any" class="form-control" id="precio"
+            name="precio"  formControlName="precio"
+            [(ngModel)]="hamburguesa.precio" >
+        </div>
+        <div class="mb-3">
+            <label for="stock" class="form-label">Stock:</label>
+            <input type="number" class="form-control" id="stock"
+            name="stock"  formControlName="stock"
+            [(ngModel)]="hamburguesa.stock" >
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-warning btn-sm me-3">Guardar</button>
+            <a href="/" class="btn btn-danger btn-sm">Regresar</a>
+        </div>
+
+    </form>
+</div>
+
